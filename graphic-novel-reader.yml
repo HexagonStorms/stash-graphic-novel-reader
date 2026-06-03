@@ -1,0 +1,23 @@
+name: Graphic Novel Reader
+description: A touch-friendly, full-screen reading mode for image galleries (manga, comics, doujin, art books). Adds a Read button to galleries and an immersive page-turner with tap-zone paging, pinch-to-zoom, right-to-left support, and resume-where-you-left-off.
+version: 0.1.0
+url: https://github.com/HexagonStorms/stash-graphic-novel-reader
+ui:
+  javascript:
+    - reader.js
+    - integration.js
+  css:
+    - reader.css
+settings:
+  pageAnimations:
+    displayName: Page-turn animations
+    description: Slide pages when turning. Turn off for instant page changes. (Default on; can be toggled live inside the reader.)
+    type: BOOLEAN
+  defaultRightToLeft:
+    displayName: Right-to-left by default
+    description: Open galleries in right-to-left reading order, manga style. (Default off; can be toggled live inside the reader.)
+    type: BOOLEAN
+  readButtonOnCards:
+    displayName: Read button on gallery cards
+    description: Show a quick Read button overlay on gallery cards in lists. (Default on.)
+    type: BOOLEAN

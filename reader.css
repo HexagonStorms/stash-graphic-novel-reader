@@ -82,6 +82,7 @@
   line-height: 1.2;
   cursor: pointer;
 }
+.gnr-iconbtn svg { vertical-align: middle; }
 .gnr-iconbtn:hover,
 .gnr-btn:hover { background: rgba(255, 255, 255, .16); }
 .gnr-iconbtn.gnr-on { background: #2e7d6b; border-color: #3a9d87; }

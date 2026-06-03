@@ -405,7 +405,17 @@
           className: "gnr-iconbtn" + (prefs.animations ? " gnr-on" : ""),
           title: "Page-turn animation: " + (prefs.animations ? "on" : "off"),
           onClick: () => patchPrefs({ animations: !prefs.animations }),
-        }, prefs.animations ? "Anim ●" : "Anim ○")
+        },
+          // page with motion lines: the page-turn animation toggle
+          h("svg", {
+            width: 16, height: 16, viewBox: "0 0 16 16",
+            fill: "none", stroke: "currentColor", strokeWidth: 1.6,
+            strokeLinecap: "round", "aria-hidden": true,
+          },
+            h("rect", { x: 6.5, y: 2.5, width: 7, height: 11, rx: 1 }),
+            h("path", { d: "M2 5h2.5M1 8h3.5M2 11h2.5" })
+          )
+        )
       ),
 
       // bottom chrome: scrubber

@@ -246,7 +246,9 @@
       }
     }, []);
 
-    // ---- bind native pointer/wheel handlers once ----------------------------
+    // ---- bind native pointer/wheel handlers ---------------------------------
+    // Depends on loading/error/total because the stage element only exists
+    // once content renders; binding on mount alone would find no stage.
     useEffect(() => {
       const st = stageRef.current;
       if (!st) return;
@@ -327,17 +329,17 @@
         st.removeEventListener("pointercancel", onUp);
         st.removeEventListener("wheel", onWheel);
       };
-    }, [applyTransform, clampPan, resetZoom, setZoom, handleTap]);
+    }, [applyTransform, clampPan, resetZoom, setZoom, handleTap, state.loading, state.error, total]);
 
     // keyboard (desktop)
     useEffect(() => {
       const onKey = (e) => {
         const rtl = prefsRef.current.rtl;
         switch (e.key) {
-          case "ArrowRight": rtl ? navRef.current.prev() : navRef.current.next(); break;
-          case "ArrowLeft": rtl ? navRef.current.next() : navRef.current.prev(); break;
-          case " ": case "PageDown": navRef.current.next(); e.preventDefault(); break;
-          case "PageUp": navRef.current.prev(); break;
+          case "ArrowRight": case "d": case "D": rtl ? navRef.current.prev() : navRef.current.next(); break;
+          case "ArrowLeft": case "a": case "A": rtl ? navRef.current.next() : navRef.current.prev(); break;
+          case " ": case "PageDown": case "s": case "S": navRef.current.next(); e.preventDefault(); break;
+          case "PageUp": case "w": case "W": navRef.current.prev(); break;
           case "Escape": navRef.current.exit(); break;
           case "h": case "H": navRef.current.toggleChrome(); break;
           case "0": resetZoom(); break;

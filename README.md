@@ -12,7 +12,7 @@ Stash treats a gallery as a bag of images. This plugin treats it as a book. It a
 - **Optional page-turn animation** — a slide transition you can toggle on or off, live, from inside the reader (or set a default in plugin settings). Off means instant cuts.
 - **Right-to-left support** — flip reading direction for manga; tap zones flip with it.
 - **Resume where you left off** — each gallery remembers its last page.
-- **Keyboard** — arrow keys / space to page, `0` to reset zoom, `h` to hide controls, `Esc` to exit.
+- **Keyboard** — arrow keys, WASD, or space to page, `0` to reset zoom, `h` to hide controls, `Esc` to exit.
 
 ## How it maps onto Stash
 

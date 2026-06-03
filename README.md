@@ -7,6 +7,7 @@ Stash treats a gallery as a bag of images. This plugin treats it as a book. It a
 ## Features
 
 - **Tap-zone paging** — tap the right third of the screen to go forward, the left third to go back, the center to show/hide the controls. One press, instant.
+- **Swipe paging** — swipe left to go forward, right to go back (mirrored in right-to-left mode). Ignored while zoomed in, where dragging pans instead.
 - **Pinch to zoom that never flips the page** — while you are pinching or zoomed in, taps pan the image instead of turning the page. A short cooldown after a pinch prevents the stray flip when you lift your fingers unevenly. Mouse wheel zooms on desktop.
 - **Optional page-turn animation** — a slide transition you can toggle on or off, live, from inside the reader (or set a default in plugin settings). Off means instant cuts.
 - **Right-to-left support** — flip reading direction for manga; tap zones flip with it.

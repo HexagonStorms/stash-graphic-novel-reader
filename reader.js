@@ -292,9 +292,19 @@
         if (s.pointers.size === 0) {
           const dt = Date.now() - s.downT;
           const recentlyPinched = Date.now() - s.lastPinchEnd < 200;
-          // a clean tap only pages when at rest (not zoomed) and not a leftover pinch finger
-          if (s.scale <= 1.02 && s.moved < 10 && dt < 300 && !recentlyPinched) {
-            handleTap(e.clientX);
+          // gestures only fire at rest (not zoomed), not as a leftover pinch
+          // finger, and only on a real pointerup (not pointercancel)
+          if (s.scale <= 1.02 && !recentlyPinched && e.type === "pointerup") {
+            const dx = e.clientX - s.downX;
+            const dy = e.clientY - s.downY;
+            const isSwipe = Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5;
+            if (isSwipe) {
+              // swipe left advances in LTR; mirrored in RTL
+              const forward = (dx < 0) !== prefsRef.current.rtl;
+              forward ? navRef.current.next() : navRef.current.prev();
+            } else if (s.moved < 10 && dt < 300) {
+              handleTap(e.clientX);
+            }
           }
           if (s.scale <= 1.02) resetZoom();
         }

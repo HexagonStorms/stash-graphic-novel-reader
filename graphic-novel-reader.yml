@@ -1,6 +1,6 @@
 name: Graphic Novel Reader
 description: A touch-friendly, full-screen reading mode for image galleries (manga, comics, doujin, art books). Adds a Read button to galleries and an immersive page-turner with tap-zone paging, pinch-to-zoom, right-to-left support, and resume-where-you-left-off.
-version: 0.1.0
+version: 0.1.1
 url: https://github.com/HexagonStorms/stash-graphic-novel-reader
 ui:
   javascript:

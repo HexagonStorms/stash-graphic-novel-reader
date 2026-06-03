@@ -68,7 +68,8 @@
     return h(ReadButton, { id: props.id, className: "gnr-card-read-btn" });
   }
 
-  PluginApi.patch.after("GalleryCard.Overlays", function (props, result) {
+  // after-hooks receive (props, context, result); the rendered output is the THIRD arg
+  PluginApi.patch.after("GalleryCard.Overlays", function (props, _ctx, result) {
     const gallery = props && props.gallery;
     const id = gallery && gallery.id;
     if (!id) return result;
@@ -79,7 +80,7 @@
   });
 
   // ---- detail page: Read bar above the Images panel -------------------------
-  PluginApi.patch.after("GalleryImagesPanel", function (props, result) {
+  PluginApi.patch.after("GalleryImagesPanel", function (props, _ctx, result) {
     const gallery = props && props.gallery;
     const id = gallery && gallery.id;
     const count = gallery && gallery.image_count;
